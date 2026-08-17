@@ -11,15 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="24dp"
-        android:paddingTop="56dp"
+        android:paddingTop="40dp"
         android:paddingBottom="40dp">
 
-        <!-- Header do filho -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardHeader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="0dp"
             app:cardBackgroundColor="#F8FAFC"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,12 +29,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="22dp"
-                android:gravity="center">
+                android:padding="24dp"
+                android:gravity="center"
+                android:background="@android:color/transparent">
 
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
                     android:src="@android:drawable/ic_menu_myplaces"
                     app:tint="#1A56DB" />
 
@@ -43,10 +43,10 @@
                     android:id="@+id/txtNomeDetalhes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="16dp"
                     android:text="Nome do Filho"
                     android:textColor="#0F172A"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center" />
 
@@ -57,20 +57,19 @@
                     android:layout_marginTop="4dp"
                     android:text="email@filho.com"
                     android:textColor="#64748B"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:gravity="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Acoes rapidas -->
         <TextView
             android:id="@+id/lblAcoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="32dp"
             android:text="Minhas Atividades"
             android:textColor="#0F172A"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardHeader" />
@@ -79,7 +78,7 @@
             android:id="@+id/layoutAcoes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,14 +86,15 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVerHistorico"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#F1F5F9"
                 android:text="Ver Meu Histórico"
                 android:textAllCaps="false"
                 android:textColor="#1E293B"
-                app:cornerRadius="12dp"
+                app:strokeColor="#E2E8F0"
+                app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_menu_recent_history"
                 app:iconTint="#1A56DB" />
 
@@ -106,43 +106,58 @@
                 android:backgroundTint="#1A56DB"
                 android:text="Meus Alertas"
                 android:textAllCaps="false"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_dialog_alert" />
+                android:textColor="#FFFFFF"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_dialog_alert"
+                app:iconTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAnaliseIA"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#059669"
+                android:backgroundTint="#E6F4EA"
                 android:text="Análise de Uso com IA"
                 android:textAllCaps="false"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_menu_help" />
+                android:textColor="#137333"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_menu_help"
+                app:iconTint="#137333" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRespostaIA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F1F5F9"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/txtRespostaIA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textColor="#1E293B"
+                    android:textSize="14sp"
+                    tools:text="Resultado da análise IA..." />
+            </androidx.cardview.widget.CardView>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAtivarAdmin"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#6366F1"
                 android:text="Ativar Proteção Extra"
                 android:textAllCaps="false"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_lock_lock" />
-
-            <TextView
-                android:id="@+id/txtRespostaIA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:padding="16dp"
-                android:background="#F1F5F9"
-                android:textColor="#1E293B"
-                android:textSize="14sp"
-                android:visibility="gone"
-                tools:text="Resultado da análise IA..."
-                tools:visibility="visible" />
+                android:textColor="#4F46E5"
+                app:strokeColor="#E0E7FF"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_lock_lock"
+                app:iconTint="#4F46E5" />
 
         </LinearLayout>
 
@@ -151,11 +166,12 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="24dp"
             android:text="Sair da conta"
             android:textAllCaps="false"
             android:textColor="#EF4444"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -166,6 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            android:indeterminateTint="#1A56DB"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -18,7 +18,7 @@
             android:id="@+id/txtSub"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Painel do responsavel"
+            android:text="Painel do responsável"
             android:textColor="#64748B"
             android:textSize="12sp"
             android:letterSpacing="0.08"
@@ -41,77 +41,131 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtSub" />
 
+        <!-- Seção Gemini AI -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardIA"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#F8FAFC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTitulo">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pesquisa Inteligente (Gemini)"
+                    android:textColor="#1E293B"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:drawableStart="@android:drawable/ic_menu_search"
+                    android:drawablePadding="8dp" />
+
+                <EditText
+                    android:id="@+id/edtPesquisaIA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Ex: Como foi o uso de tela do meu filho hoje?"
+                    android:background="@drawable/bg_edittext_ia"
+                    android:padding="12dp"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPerguntarIA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Analisar com Gemini"
+                    android:textAllCaps="false"
+                    app:cornerRadius="8dp"
+                    app:backgroundTint="#8B5CF6" />
+
+                <TextView
+                    android:id="@+id/txtRespostaIA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    android:textColor="#334155"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:background="#F1F5F9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtTitulo" />
+            app:layout_constraintTop_toBottomOf="@id/cardIA" />
 
-        <TextView
-            android:id="@+id/lblFilhos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Filhos cadastrados"
-            android:textColor="#0F172A"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvFilhos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:clipToPadding="false"
-            android:nestedScrollingEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lblFilhos"
-            tools:listitem="@layout/item_filho" />
-
+        <!-- Botão para Meus Filhos -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCadastrarFilho"
+            android:id="@+id/btnMeusFilhos"
             android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="28dp"
-            android:backgroundTint="#1A56DB"
-            android:text="Adicionar filho"
+            android:layout_height="64dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#F8FAFC"
+            android:text="Gerenciar Filhos"
             android:textAllCaps="false"
-            android:textSize="14sp"
+            android:textColor="#0F172A"
+            android:textSize="16sp"
             android:fontFamily="sans-serif-medium"
-            app:cornerRadius="10dp"
+            android:gravity="start|center_vertical"
+            android:paddingStart="20dp"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_myplaces"
+            app:iconTint="#1A56DB"
+            app:iconGravity="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvFilhos" />
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnVerAlertas"
             android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#F59E0B"
-            android:text="Ver todos os alertas"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#F8FAFC"
+            android:text="Ver Alertas de Segurança"
             android:textAllCaps="false"
-            android:textSize="14sp"
+            android:textColor="#0F172A"
+            android:textSize="16sp"
             android:fontFamily="sans-serif-medium"
-            app:cornerRadius="10dp"
+            android:gravity="start|center_vertical"
+            android:paddingStart="20dp"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_dialog_alert"
+            app:iconTint="#F59E0B"
+            app:iconGravity="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnCadastrarFilho" />
+            app:layout_constraintTop_toBottomOf="@id/btnMeusFilhos"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnInstrucoesVinculo"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="52dp"
-            android:layout_marginTop="10dp"
-            android:text="Instrucoes de vinculo"
+            android:layout_marginTop="32dp"
+            android:text="Instruções de vínculo"
             android:textAllCaps="false"
             android:textColor="#1A56DB"
             android:textSize="14sp"
@@ -127,7 +181,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="Sair da conta"
             android:textAllCaps="false"
